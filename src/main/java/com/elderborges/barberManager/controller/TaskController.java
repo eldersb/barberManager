@@ -7,9 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +45,6 @@ public class TaskController {
         if (taskOptional.isPresent()) {
             model.addAttribute("task", taskOptional.get());
         } else {
-            // Lidar com o caso em que a tarefa não é encontrada, talvez redirecionar para uma página de erro
             return "redirect:/list";
         }
 
@@ -54,13 +52,26 @@ public class TaskController {
     }
 
     @PutMapping("/update/{id}")
-    public String update(@ModelAttribute Task newTask, @PathVariable Long id) {
+    public String update(@ModelAttribute Task task, @PathVariable Long id) {
         Optional<Task> taskOptional = taskService.findTaskId(id);
 
-        taskService.update(id, newTask);
+        taskService.update(id, task);
 
         return "redirect:/list";
 
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes) {
+        Optional<Task> taskDelete = taskService.findTaskId(id);
+
+        if (taskDelete.isPresent()) {
+            taskService.remove(id);
+            redirectAttributes.addFlashAttribute("message", "Task deleted successfully!");
+        } else {
+            redirectAttributes.addFlashAttribute("message", "Task not found!");
+        }
+        return "redirect:/list";
     }
 
 

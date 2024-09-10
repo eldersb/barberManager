@@ -39,19 +39,21 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <form class="mt-5" method="post" th:action="@{/update}">
-                <input type="hidden">
+            <form class="mt-5" method="post" th:action="@{/update/{id}(id=${task.id})}" th:object="${task}">
+
+                <input type="hidden" name="_method" value="put">
+
                 <div class="mb-3">
                     <label for="nameClient" class="form-label" id="nameClient">Nome do cliente</label>
-                    <input type="text" class="form-control" name="nameClient" th:value="${task.nameClient}" >
+                    <input type="text" class="form-control" th:field="*{nameClient}">
                 </div>
                 <div class="mb-3">
                     <label for="nameBarber" class="form-label" id="nameBarber">Nome do barbeiro</label>
-                    <input type="text" class="form-control" name="nameBarber" th:value="${task.nameBarber}">
+                    <input type="text" class="form-control" th:field="*{nameBarber}">
                 </div>
                 <div class="mb-3">
                     <label for="date" class="form-label" id="date">Data de execução</label>
-                    <input type="text" class="form-control" name="date" th:value="${{task.date}}">
+                    <input type="text" class="form-control" th:field="*{date}">
                 </div>
 
                 <button type="submit" class="btn btn-info text-white">
@@ -61,6 +63,7 @@
                     </svg>
                 </button>
             </form>
+
         </div>
     </div>
 </div>
