@@ -13,7 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 mt-5">
-            <form class="mt-5" method="POST" th:action="@{/create}" th:object="${task}">
+            <form class="mt-5" method="POST" th:action="@{/create}" th:object="${task}" >
                 <input type="hidden">
                 <div class="mb-3">
                     <label for="nameClient" class="form-label" id="nameClient">Nome do cliente</label>
@@ -22,6 +22,12 @@
                 <div class="mb-3">
                     <label for="nameBarber" class="form-label" id="nameBarber">Nome do barbeiro</label>
                     <input type="text" class="form-control" th:field="*{nameBarber}">
+                </div>
+                <div class="mb-3">
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="" selected>Selecione o barbeiro</option>
+                        <option th:each="barber : ${barbers}" th:value="${barber.id}" th:text="${barber.name}"></option>
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="date" class="form-label" id="date">Data de execução</label>
@@ -39,7 +45,7 @@
         </div>
 
         <div class="col-md-6 mt-2">
-            <img th:src="@{/images/barbershop.png}" alt="Barbershop">
+            <img th:src="@{/images/barbershop.png}" alt="Barbershop" class="img-fluid">
         </div>
     </div>
 </div>

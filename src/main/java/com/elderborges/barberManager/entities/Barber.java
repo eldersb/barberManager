@@ -17,16 +17,16 @@ import java.util.Date;
 @NoArgsConstructor
 
 @Entity
-public class Task {
+public class Barber {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nameClient;
-    private String nameBarber;
+    private String name;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-    private Date date;
+    public Barber(String name) {
+        this.name = name;
+    }
 
 }
