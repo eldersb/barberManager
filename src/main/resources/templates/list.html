@@ -28,7 +28,7 @@
                 <tr th:each="task : ${tasks}">
                     <td th:text="${task.id}"></td>
                     <td th:text="${task.nameClient}"></td>
-                    <td th:text="${task.nameBarber}"></td>
+                    <td th:text="${task.barber != null ? task.barber.name : 'Sem barbeiro'}"></td>
                     <td th:text="${{task.date}}"></td>
                     <td>
                         <a th:href="@{/update/{id}(id=${task.id})}" class="btn btn-sm btn-primary">Edit</a>

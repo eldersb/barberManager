@@ -11,9 +11,9 @@ public class BarberController {
     @Autowired
     private BarberService barberService;
 
-    @GetMapping("/barbers")
-    public String showBarbers(Model model) {
-        model.addAttribute("barbers", barberService.getAllBarbers());
-        return "barbers";
-    }
+//    @GetMapping("/barbers")
+//    public String showBarbers(Model model) {
+//        model.addAttribute("barbers", barberService.getAllBarbers());
+//        return "barbers";
+//    }
 }

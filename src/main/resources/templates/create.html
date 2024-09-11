@@ -19,16 +19,18 @@
                     <label for="nameClient" class="form-label" id="nameClient">Nome do cliente</label>
                     <input type="text" class="form-control"  th:field="*{nameClient}">
                 </div>
+
                 <div class="mb-3">
-                    <label for="nameBarber" class="form-label" id="nameBarber">Nome do barbeiro</label>
-                    <input type="text" class="form-control" th:field="*{nameBarber}">
-                </div>
-                <div class="mb-3">
-                    <select class="form-select" aria-label="Default select example">
+                    <select class="form-select" aria-label="Default select example" th:field="*{barber}">
                         <option value="" selected>Selecione o barbeiro</option>
-                        <option th:each="barber : ${barbers}" th:value="${barber.id}" th:text="${barber.name}"></option>
+                        <option
+                                th:each="barber : ${barbers}"
+                                th:value="${barber.id}"
+                                th:text="${barber.name}">Barber
+                        </option>
                     </select>
                 </div>
+
                 <div class="mb-3">
                     <label for="date" class="form-label" id="date">Data de execução</label>
                     <input type="text" class="form-control" th:field="*{date}">

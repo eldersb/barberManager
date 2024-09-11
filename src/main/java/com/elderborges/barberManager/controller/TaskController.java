@@ -1,6 +1,7 @@
 package com.elderborges.barberManager.controller;
 
 import com.elderborges.barberManager.entities.Task;
+import com.elderborges.barberManager.services.BarberService;
 import com.elderborges.barberManager.services.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,13 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
+    @Autowired
+    private BarberService barberService;
+
     @GetMapping("/create")
     public String home(Model model) {
         model.addAttribute("task", new Task());
+        model.addAttribute("barbers", barberService.getAllBarbers());
 
         return "create";
     }
@@ -51,15 +56,15 @@ public class TaskController {
         return "update";
     }
 
-    @PutMapping("/update/{id}")
-    public String update(@ModelAttribute Task task, @PathVariable Long id) {
-        Optional<Task> taskOptional = taskService.findTaskId(id);
-
-        taskService.update(id, task);
-
-        return "redirect:/list";
-
-    }
+//    @PutMapping("/update/{id}")
+//    public String update(@ModelAttribute Task task, @PathVariable Long id) {
+//        Optional<Task> taskOptional = taskService.findTaskId(id);
+//
+//        taskService.update(id, task);
+//
+//        return "redirect:/list";
+//
+//    }
 
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes) {
@@ -74,6 +79,11 @@ public class TaskController {
         return "redirect:/list";
     }
 
+//    @GetMapping("/barbers")
+//    public String showBarbers(Model model) {
+//
+//        return "barbers";
+//    }
 
 
 }

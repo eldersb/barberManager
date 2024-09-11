@@ -1,10 +1,7 @@
 package com.elderborges.barberManager.entities;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,7 +21,10 @@ public class Task {
     private Long id;
 
     private String nameClient;
-    private String nameBarber;
+
+    @ManyToOne
+    @JoinColumn(name = "barber_id")
+    private Barber barber;
 
     @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
     private Date date;
