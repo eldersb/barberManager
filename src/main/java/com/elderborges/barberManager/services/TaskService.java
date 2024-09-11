@@ -30,21 +30,21 @@ public class TaskService {
         return task;
     }
 
-//    public Task update(Long id, Task task) {
-//        Optional<Task> taskOptional = findTaskId(id);
-//
-//        if (taskOptional.isPresent()) {
-//           Task newTask = taskOptional.get();
-//            newTask.setNameClient(task.getNameClient());
-//            newTask.setNameBarber(task.getNameBarber());
-//            newTask.setDate(task.getDate());
-//
-//            return taskRepository.save(newTask);
-//
-//        }
-//
-//        return null;
-//    }
+    public Task update(Long id, Task task) {
+        Optional<Task> taskOptional = findTaskId(id);
+
+        if (taskOptional.isPresent()) {
+           Task newTask = taskOptional.get();
+            newTask.setNameClient(task.getNameClient());
+            newTask.setBarber(task.getBarber());
+            newTask.setDate(task.getDate());
+
+            return taskRepository.save(newTask);
+
+        }
+
+        return null;
+    }
 
     public void remove(Long id) {
         Optional<Task> task = findTaskId(id);

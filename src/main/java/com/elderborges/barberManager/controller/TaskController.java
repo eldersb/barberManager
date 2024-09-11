@@ -47,8 +47,11 @@ public class TaskController {
     @GetMapping("/update/{id}")
     public String update(@PathVariable Long id, Model model) {
         Optional<Task> taskOptional = taskService.findTaskId(id);
+
         if (taskOptional.isPresent()) {
             model.addAttribute("task", taskOptional.get());
+            model.addAttribute("barbers", barberService.getAllBarbers());
+
         } else {
             return "redirect:/list";
         }
@@ -56,15 +59,15 @@ public class TaskController {
         return "update";
     }
 
-//    @PutMapping("/update/{id}")
-//    public String update(@ModelAttribute Task task, @PathVariable Long id) {
-//        Optional<Task> taskOptional = taskService.findTaskId(id);
-//
-//        taskService.update(id, task);
-//
-//        return "redirect:/list";
-//
-//    }
+    @PutMapping("/update/{id}")
+    public String update(@ModelAttribute Task task, @PathVariable Long id) {
+        Optional<Task> taskOptional = taskService.findTaskId(id);
+
+        taskService.update(id, task);
+
+        return "redirect:/list";
+
+    }
 
     @DeleteMapping("/delete/{id}")
     public String delete(@PathVariable Long id, RedirectAttributes redirectAttributes) {
