@@ -7,6 +7,7 @@ Projeto de construção de um gerenciador de atendimentos de uma barbearia utili
 * Bootstrap
 * Java, Spring Boot
 * Thymeleaf
+* MySQL
 
 ## Imagens modelo do projeto
 ![barberManager](https://github.com/user-attachments/assets/6ac9faf4-35cd-4749-aa4b-6147554a1b05)
