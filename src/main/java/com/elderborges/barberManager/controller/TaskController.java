@@ -10,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,6 +42,7 @@ public class TaskController {
     @GetMapping("/list")
     public String list(Model model) {
         List<Task> tasks = taskService.getAll();
+
         model.addAttribute("tasks", tasks);
         return "list";
     }

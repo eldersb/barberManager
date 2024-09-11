@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -26,7 +26,8 @@ public class Task {
     @JoinColumn(name = "barber_id")
     private Barber barber;
 
-    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-    private Date date;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    private LocalDateTime date;
+
 
 }
