@@ -11,6 +11,6 @@ Projeto de construção de um gerenciador de atendimentos de uma barbearia utili
 
 ## Imagens modelo do projeto
 
-![barberManager](https://github.com/user-attachments/assets/3b2fe301-69ee-4e4b-bbfb-94e1eca0cfcc)
+![barberManager](https://github.com/user-attachments/assets/2616c10a-5c8f-43f2-a83b-00952f84ae18)
 
-![barberManager2](https://github.com/user-attachments/assets/d31d2dfe-da13-470b-8e2a-10f716b5e5fd)
+![barberManager2](https://github.com/user-attachments/assets/4c3dd3ed-d2e2-4c39-8f01-e4f6be5a5bbc)
