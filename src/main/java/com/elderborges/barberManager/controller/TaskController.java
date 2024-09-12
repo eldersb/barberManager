@@ -3,6 +3,7 @@ package com.elderborges.barberManager.controller;
 import com.elderborges.barberManager.entities.Task;
 import com.elderborges.barberManager.services.BarberService;
 import com.elderborges.barberManager.services.TaskService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -33,7 +34,7 @@ public class TaskController {
     }
 
     @PostMapping("/home")
-    public String create(@ModelAttribute Task task) {
+    public String create( @ModelAttribute Task task) {
         taskService.inserir(task);
         return "redirect:/list";
 
