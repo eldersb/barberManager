@@ -22,11 +22,13 @@ public class Task {
 
     private String nameClient;
 
+    private String telephone;
+
     @ManyToOne
     @JoinColumn(name = "barber_id")
     private Barber barber;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm")
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
     private LocalDateTime date;
 
 

@@ -24,15 +24,15 @@ public class TaskController {
     @Autowired
     private BarberService barberService;
 
-    @GetMapping("/create")
+    @GetMapping("/home")
     public String home(Model model) {
         model.addAttribute("task", new Task());
         model.addAttribute("barbers", barberService.getAllBarbers());
 
-        return "create";
+        return "index";
     }
 
-    @PostMapping("/create")
+    @PostMapping("/home")
     public String create(@ModelAttribute Task task) {
         taskService.inserir(task);
         return "redirect:/list";

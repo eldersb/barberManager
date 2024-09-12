@@ -14,25 +14,52 @@
     <div class="row">
         <div class="col-md-12">
 
-            <h2 class="mt-5 text-center">Lista de atendimentos</h2>
+            <h2 class="mt-5 text-center" style="font-family: Poppins, sans-serif; font-weight: 500">LISTA DE ATENDIMENTOS</h2>
 
             <table class="table table-sm mt-5">
+
                 <thead class="thead-dark">
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Cliente</th>
-                    <th scope="col">Barbeiro</th>
-                    <th scope="col">Data</th>
-                    <th></th>
+                    <th scope="col" class="text-center">#</th>
+                    <th scope="col">
+                        <div class="d-flex justify-content-center align-items-center text-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                            </svg>
+                            <span>Cliente</span>
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="d-flex justify-content-center align-items-center text-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-scissors" viewBox="0 0 16 16">
+                                <path d="M3.5 3.5c-.614-.884-.074-1.962.858-2.5L8 7.226 11.642 1c.932.538 1.472 1.616.858 2.5L8.81 8.61l1.556 2.661a2.5 2.5 0 1 1-.794.637L8 9.73l-1.572 2.177a2.5 2.5 0 1 1-.794-.637L7.19 8.61zm2.5 10a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0m7 0a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0"/>
+                            </svg>
+                            <span>Barbeiro</span>
+                        </div>
+                    </th>
+                    <th scope="col">
+                        <div class="d-flex justify-content-center align-items-center text-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-date" viewBox="0 0 16 16">
+                                <path d="M6.445 11.688V6.354h-.633A13 13 0 0 0 4.5 7.16v.695c.375-.257.969-.62 1.258-.777h.012v4.61zm1.188-1.305c.047.64.594 1.406 1.703 1.406 1.258 0 2-1.066 2-2.871 0-1.934-.781-2.668-1.953-2.668-.926 0-1.797.672-1.797 1.809 0 1.16.824 1.77 1.676 1.77.746 0 1.23-.376 1.383-.79h.027c-.004 1.316-.461 2.164-1.305 2.164-.664 0-1.008-.45-1.05-.82zm2.953-2.317c0 .696-.559 1.18-1.184 1.18-.601 0-1.144-.383-1.144-1.2 0-.823.582-1.21 1.168-1.21.633 0 1.16.398 1.16 1.23"/>
+                                <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5M1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z"/>
+                            </svg>
+                            <span>Data de atendimento</span>
+                        </div>
+                    </th>
+                    <th class="d-flex justify-content-end">
+                        <a class="btn btn-sm" href="/home" style="background-color: #f0b35b;">
+                            <strong>Home</strong>
+                        </a>
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr th:each="task : ${tasks}">
-                    <td th:text="${task.id}"></td>
-                    <td th:text="${task.nameClient}"></td>
-                    <td th:text="${task.barber != null ? task.barber.name : 'Sem barbeiro'}"></td>
-                    <td th:text="${{task.date}}"></td>
-                    <td>
+                    <td class="text-center" th:text="${task.id}"></td>
+                    <td class="text-center" th:text="${task.nameClient}"></td>
+                    <td class="text-center" th:text="${task.barber != null ? task.barber.name : 'Sem barbeiro'}"></td>
+                    <td class="text-center" th:text="${{task.date}}"></td>
+                    <td class="d-flex justify-content-end gap-2">
                         <a th:href="@{/update/{id}(id=${task.id})}" class="btn btn-sm btn-primary">Edit</a>
 
                         <form th:action="@{/delete/{id}(id=${task.id})}" method="post" style="display:inline;">
@@ -46,12 +73,7 @@
                 </tbody>
             </table>
 
-            <a class="btn btn-sm btn-primary d-flex align-items-center justify-content-center" href="/create">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
-                </svg>
-                Voltar
-            </a>
+
 
 
         </div>
