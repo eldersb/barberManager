@@ -8,7 +8,7 @@ Nesse projeto, fiz um sistema básico para testar o poder da ferramenta Thymelea
 * Bootstrap
 * Java, Spring Boot
 * Thymeleaf
-* MySQL
+* MariaDB
 
 ## Testando o projeto em sua máquina
 ```
