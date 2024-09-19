@@ -11,11 +11,11 @@ Nesse projeto, fiz um sistema básico para testar o poder da ferramenta Thymelea
 * MariaDB
 
 ## Testando o projeto em sua máquina
-```
 - Para rodar o projeto, é necessário ter previamente instalado um servidor para rodar o banco de dados, no meu caso utilizei o XAMPP.
 - Clone o projeto na sua máquina, que ele ira criar o banco de dados e as tabelas iniciais, ja populando a tabela "Barbeiros"
 - Dentro de sua configuração application.properties:
 
+```
 spring.application.name=barberManager
 
 spring.datasource.url=jdbc:mariadb://localhost/barbermanager?createDatabaseIfNotExist=true
@@ -27,7 +27,6 @@ spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MariaDBDialect
-
 ```
 
 ## Imagens modelo do projeto
